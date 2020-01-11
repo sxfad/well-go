@@ -1,0 +1,23 @@
+{
+  "name": "well-go",
+  "description": "## 安装",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "docsify": "node ./node_modules/docsify-cli/bin/docsify",
+    "start": "yarn docsify serve src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sxfad/well-go.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sxfad/well-go/issues"
+  },
+  "homepage": "https://github.com/sxfad/well-go#readme",
+  "devDependencies": {
+    "docsify-cli": "^4.4.0"
+  }
+}
