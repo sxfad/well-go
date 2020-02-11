@@ -9,7 +9,7 @@
 
 ## React生成树的过程
 
-- React使用render方法生成元素树
+- React使用render方法生成元素树 
     - 不同节点
         ```
         // 旧Virtual DOM
