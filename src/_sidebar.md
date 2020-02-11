@@ -7,4 +7,7 @@
     * [前后端分离开发约定](standard/fe_be_specification.md)
 * [javaScript](javaScript/README.md)
     * [== 隐式类型转换](javaScript/implicit_type_transform.md) 
-    * [处理异步之async-await](javaScript/async_await.md)   
+    * [处理异步之async-await](javaScript/async_await.md) 
+    * [ES10一些实用的新特性(更新中...)](javaScript/ES10.md) 
+* [react](react/README.md)
+    * [React中关于使用key的意义和要点](react/react_key.md) 
