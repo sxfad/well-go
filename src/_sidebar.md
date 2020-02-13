@@ -10,8 +10,10 @@
     * [处理异步之async-await](javaScript/async_await.md) 
     * [ES10一些实用的新特性(更新中...)](javaScript/ES10.md) 
     * [常用运算符](javaScript/operator.md)
-    * [Promise常用API](javaScript/promise_api.md)  
+    * [Promise常用API](javaScript/promise_api.md)
+    * [js实现防抖节流](javaScript/debounce_throttle.md)   
 * [react](react/README.md)
     * [React中关于使用key的意义和要点](react/react_key.md) 
     * [react高阶组件](react/react_hoc.md)
     * [react中导出表格](react/react_export_excel.md)
+  
