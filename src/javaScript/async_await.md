@@ -1,10 +1,15 @@
 # 处理异步之async-await
 
-## async-await和Promise的关系
-es5的回调地狱层层嵌套，es6的Promise链式调用，使我们稍喘口气，但发现层级很深时，一步步的then也很恶心，终于es7出现了async-await，给我们带来光明。
+> async-await和Promise的关系?
+    
+    我们用async-await书写代码时更加流畅，增强代码可读性，async-await是建立在promise机制之上的，并不能取代其地位。
 
-async-await只是为了让我们书写代码时**更加流畅**，当然也增强了代码的可读性，简单来说：async-await是**建立在promise机制之上**的，并不能取代其地位。
-
+> async-await有什么缺点？
+    
+    async-await将异步逻辑以同步方式实现，所以会造成阻塞。
+    
+    如果多个异步操作之间有因果关系，那么适合用async-await。如果没有，那还是用promise比较适合。
+     
 ## 基本语法
 
 ### async

@@ -186,3 +186,85 @@ setTimeout(function() { // timer2
 // => 4 (13) 第三次循环开始，拿出timer2，遇到setTimeout，记为timer3，放到宏任务队列，发现没有任何微任务，第三次循环结束。
 // => 2 (14) 第四次循环开始，拿出timer3，遇到console，直接输出 9
 ```
+
+#### 案例5
+async 函数返回一个 Promise 对象；
+
+Promise中的异步体现在then和catch中，所以写在Promise中的代码是被当做同步任务立即执行的；
+
+所以async声明的函数内部，await出现之前的代码也是立即执行的；
+
+> 那么await做了什么?
+    
+    await后面的表达式会先执行一遍，即先执行 async2()，
+    
+    然后将await后面的代码，即console.log() 加入到微任务队列中，
+    
+    然后跳出整个async函数来执行后面的代码。
+    
+```js
+async function async1() {
+	console.log('async1 start');
+	await async2();
+	console.log('async1 end');
+}
+
+// 等价于
+
+async function async1() {
+	console.log('async1 start');
+	Promise.resolve(async2()).then(() => {
+        console.log('async1 end');
+    })
+}
+```
+
+> 看个例子。
+
+```js
+async function async1() {
+    console.log('async1 start');
+    await async2();
+    console.log('async1 end');
+}
+async function async2() {
+	console.log('async2');
+}
+
+console.log('script start');
+
+setTimeout(function() {
+    console.log('setTimeout');
+}, 0)
+
+async1();
+
+new Promise(function(resolve) {
+    console.log('promise1');
+    resolve();
+}).then(function() {
+    console.log('promise2');
+});
+console.log('script end');
+
+// script start
+// async1 start
+// async2
+// promise1
+// script end
+// async1 end
+// promise2
+// setTimeout
+
+// 步骤分析
+// (1) 首先定义了两个async函数，接着往下看，然后遇到了 console 语句，直接输出 script start
+// (2) 遇到 setTimeout，作为第一个宏任务分发到宏任务队列。
+// (3) 遇到async1()，开始执行async1，根据上面说到的会直接执行同步代码，直接输出 async1 start
+// (4) 遇到await async2(); 通过上面的转换关系可以看出，会将await后面的表达式执行一遍，所以就紧接着输出async2，
+// (5) 然后将await后面的代码(console.log('async1 end');)加入到微任务队列中
+// (6) 向下执行遇到new Promise，直接输出 promise1
+// (7) 将new Promise后面的then()分发到微任务队列
+// (8) 遇到同步任务直接输出 script end
+// (9) 然后回头检查所有的微任务，然后依次执行，输出 async1 end 和 promise2
+// (10) 所有微任务执行结束，然后执行第一轮宏任务setTimeout，输出 setTimeout
+```
