@@ -194,7 +194,7 @@ Promise中的异步体现在then和catch中，所以写在Promise中的代码是
 
 所以async声明的函数内部，await出现之前的代码也是立即执行的；
 
-> 那么await做了什么?
+> await做了什么?
     
     await后面的表达式会先执行一遍，即先执行 async2()，
     
