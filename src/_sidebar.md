@@ -19,4 +19,6 @@
     * [react高阶组件](react/react_hoc.md)
     * [react中导出表格](react/react_export_excel.md)
     * [react中链接跳转到本地html页面](react/linkTo_html.md)
-  
+* [常用的第三方插件工具](thirdTool/README.md)
+    * [拖拽式网格布局](thirdTool/draggle_grid.md)
+    * [步骤（新手）指引](thirdTool/guide.md)   
