@@ -21,4 +21,5 @@
     * [react中链接跳转到本地html页面](react/linkTo_html.md)
 * [常用的第三方插件工具](thirdTool/README.md)
     * [拖拽式网格布局](thirdTool/draggle_grid.md)
-    * [步骤（新手）指引](thirdTool/guide.md)   
+    * [步骤（新手）指引](thirdTool/guide.md)
+    * [前端导出pdf](thirdTool/export_pdf.md)   
