@@ -13,6 +13,7 @@
     * [常用运算符](javaScript/operator.md)
     * [Promise常用API](javaScript/promise_api.md)
     * [js实现防抖节流](javaScript/debounce_throttle.md)
+    * [关于setTimeout的使用](javaScript/setTimeout.md)
     * [js实现元素拖拽及缩放](javaScript/draggle_zoom.md)   
 * [react](react/README.md)
     * [React中关于使用key的意义和要点](react/react_key.md)
