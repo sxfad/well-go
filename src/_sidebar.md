@@ -26,3 +26,12 @@
     * [拖拽式网格布局](thirdTool/draggle_grid.md)
     * [步骤（新手）指引](thirdTool/guide.md)
     * [前端导出pdf](thirdTool/export_pdf.md)   
+* [最佳实践](practice/README.md)
+    * [ajax下载文件](practice/ajax_download.md) 
+    * [Antd validator 截流发送请求校验](practice/ant_validator_debounce.md)
+    * [Antd 使用Modal进行数据条件、修改脏数据问题](practice/antd_modal.md)
+    * [强制React组件刷新](practice/refresh_component.md)
+    * [基础数据下拉封装](practice/select.md)
+    * [洗牌算法](practice/shuffle.md)
+    * [webpack别名应用](practice/webpack_alias.md)
+    
