@@ -7,6 +7,7 @@
     * [前后端分离开发约定](standard/fe_be_specification.md)
 * [JavaScript](javaScript/README.md)
     * [js执行机制](javaScript/perform_mode.md)
+    * [js中的变量提升](javaScript/variable_object.md)
     * [== 隐式类型转换](javaScript/implicit_type_transform.md) 
     * [处理异步之async-await](javaScript/async_await.md) 
     * [ES10一些实用的新特性(更新中...)](javaScript/ES10.md) 
