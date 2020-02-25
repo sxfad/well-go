@@ -17,7 +17,9 @@
     * [Promise常用API](javaScript/promise_api.md)
     * [js实现防抖节流](javaScript/debounce_throttle.md)
     * [关于setTimeout的使用](javaScript/setTimeout.md)
-    * [js实现元素拖拽及缩放](javaScript/draggle_zoom.md)   
+    * [js实现元素拖拽及缩放](javaScript/draggle_zoom.md) 
+    * [js中的数值转换](javaScript/numerical.md)  
+
 * [react](react/README.md)
     * [React中关于使用key的意义和要点](react/react_key.md)
     * [react16新的周期函数](react/react16_newFunc.md) 
@@ -37,3 +39,4 @@
     * [洗牌算法](practice/shuffle.md)
     * [webpack别名应用](practice/webpack_alias.md)
     * [滚动加载日志等(节流限制)](practice/scroll_watch_log.md)
+
