@@ -5,12 +5,13 @@
     - parseInt()
     - parseFloat()
 
-- Number()函数可以用于任何数据类型，另两个函数专门用户把字符串转换成数值
+- Number()函数可以用于任何数据类型，另两个函数专门用于把字符串转换成数值
 
 
 ## Number()的转换规则
 
 - Boolean
+
 ```
 Number(true);
 //  1
@@ -67,7 +68,7 @@ Number(undefined);
 ## parseInt()
 
 - 会忽略字符串前面的空格，直至找到第一个非空字符
-- 如果一个字符不是数字符号或者是符号
+- 如果一个字符不是数字符号或者是负号
     ```
     parseInt("BLUE");
     //  NaN
@@ -101,10 +102,17 @@ Number(null);
 //  0
 parseInt(null);
 //  NaN
+
+Number("");
+//  0
+parseInt("");
+//  NaN
+
 Number("123blue");
 //  NaN
 parseInt("123blue");
 //  123
+
 Number("123.123.123");
 //  NaN
 parseInt("123.123.123");
