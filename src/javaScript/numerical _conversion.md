@@ -93,6 +93,24 @@ parseFloat("1.2abbbb");
 ```
 
 
+## 总结
+- 对于数值转换，由于他们的转换规则不同，Number和parseInt对于相同的值，可能会得出不同的结果
+
+```
+Number(null);
+//  0
+parseInt(null);
+//  NaN
+Number("123blue");
+//  NaN
+parseInt("123blue");
+//  123
+Number("123.123.123");
+//  NaN
+parseInt("123.123.123");
+//  123.123
+```
+
 
 
 
