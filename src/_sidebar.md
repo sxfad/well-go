@@ -36,4 +36,4 @@
     * [基础数据下拉封装](practice/select.md)
     * [洗牌算法](practice/shuffle.md)
     * [webpack别名应用](practice/webpack_alias.md)
-    
+    * [滚动加载日志等(节流限制)](practice/scroll_watch_log.md)
