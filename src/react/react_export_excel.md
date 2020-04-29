@@ -29,28 +29,39 @@ handleExport = () => {
 ## 后端导出
 后端返回的需要是一个文件流，前端解析文件流，写入excel。
 ```js
+import iconv from 'iconv-lite';
+
 handleExport = () => {
     this.props.ajax.get('/invitee/download', null, {
         successTip: '导出成功！',
         originResponse: true, // 框架封装，获取响应全部信息
-        headers: {
-            'content-type': 'application/vnd.ms-excel;charset=utf-8', // 必须 和后台content-type对应上
-        },
         responseType: 'blob' // 必须 限制返回类型
     })
         .then(res => {
-            const reg = /[a-zA-Z0-9%]+.xlsx/g;
-            const fileName = reg.exec(res.headers['content-disposition'])[0]; // 看需求 文件名可从后端拿也可前端写死
             const link = document.createElement('a');
+            const fileName = res.headers['content-disposition'].split('=')[1];
             const blob = new Blob([res.data], {type: res.headers['content-type']});
 
+            // 最好加一层校验 不存在则停止下载 因为如果取不到fileName 一般是后台返回格式错误
+            if(!fileName) return openNotificationWithIcon('error', '导出失败～');
+
+            iconv.skipDecodeWarning = true; // 忽略警告
+            let name = iconv.decode(fileName, 'utf-8'); // 解决文件名中文乱码
+        
             link.setAttribute('href', window.URL.createObjectURL(blob));
-            link.setAttribute('download', decodeURIComponent(fileName));
+            link.setAttribute('download', decodeURIComponent(name));
             link.style.visibility = 'hidden';
-            
+
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
         })
 };
 ```
+
+## 补充
+项目中导出表格、图片或压缩包等文件时，如果有需求**让导出的文件名称由后端来定义**。
+
+则必须要求后端返回的为**文件流**，并在响应头带上文件名称。而**不能是一个下载链接**。
+
+因为如果是下载链接的话，我们可以通过a标签去下载，但是a标签的download属性无法定义文件名称，因为**download属性不支持跨域的链接**。
