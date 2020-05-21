@@ -37,9 +37,9 @@ catalina*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/src/pages/page-routes.js
-/src/models/all-models.js
-/src/pages/local
+/docs/pages/page-routes.js
+/docs/models/all-models.js
+/docs/pages/local
 /suixingpay-fe/
 /server/
 /docs/_book

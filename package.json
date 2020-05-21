@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docsify": "node ./node_modules/docsify-cli/bin/docsify",
-    "start": "yarn docsify serve src"
+    "start": "yarn docsify serve docs"
   },
   "repository": {
     "type": "git",
