@@ -8,9 +8,9 @@ const rootDir = 'docs';
 // 输出文件
 const outFileName = 'docs/_sidebar.md';
 // 当前目录
-let catolog = {};
+let catalog = {};
 // 每行目录数据
-let catologText = [];
+let catalogText = [];
 
 /**
  * 文件遍历添加
@@ -31,8 +31,8 @@ const fileDisplay = (filePath, level) => {
         const lineText = `${''.padEnd(level * 4)}* [${level > 0 ? '' : '**'}${fileTitle.substring(2)}${level > 0 ? '' : '**'}](${fileName.substring(rootDir.length + 1)})\n`;
 
         // fs.appendFileSync(outFileName, lineText);
-        catologText.push(lineText);
-        catolog[filePath] = fileTitle.substring(2);
+        catalogText.push(lineText);
+        catalog[filePath] = fileTitle.substring(2);
 
         if (isDirectoryShow) {  // 文件夹递归
             fs.readdirSync(filePath).forEach((filename) => {
@@ -44,11 +44,11 @@ const fileDisplay = (filePath, level) => {
 
 
 const resetCatalog = () => {
-    catolog = {};
-    catologText = [];
+    catalog = {};
+    catalogText = [];
     // 调用文件遍历方法
     fileDisplay(rootDir, -1);
-    fs.writeFileSync(outFileName, catologText.join(''));
+    fs.writeFileSync(outFileName, catalogText.join(''));
 };
 
 resetCatalog();
@@ -63,7 +63,7 @@ chokidar.watch(rootDir, {
     fs.stat(path, (error, fileStat) => {
         if (event === 'unlink' || event === 'unlinkDir' || (fileStat.isFile() && path.endsWith('.md')) || fileStat.isDirectory() && fs.existsSync(`${path}/README.md`)) {
             // 目录标题未修改时，不需要重新生成文件
-            if (event === 'change' && catolog[path] === fs.readFileSync(path).toString().split('\n').find(line => line.startsWith('# '))) {
+            if (event === 'change' && catalog[path] === fs.readFileSync(path).toString().split('\n').find(line => line.startsWith('# '))) {
                 return;
             }
             watchFile = `${event}|${path}`;
