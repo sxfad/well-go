@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/sxfad/well-go#readme",
   "devDependencies": {
+    "concurrently": "^5.2.0",
     "docsify-cli": "^4.4.0"
   }
 }
