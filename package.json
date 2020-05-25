@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "sidebar": "node auto-sidebar.js",
     "docsify": "node ./node_modules/docsify-cli/bin/docsify",
-    "start": "yarn docsify serve docs"
+    "start": "concurrently \"yarn sidebar\" \"yarn docsify serve docs\""
   },
   "repository": {
     "type": "git",
